@@ -1,0 +1,62 @@
+{
+  "receipt": {
+    "execution": "docker",
+    "containment_test": false,
+    "input_sha256": "63354525e6cab7f83cb14e59163ab87e07d65240cdb3b0af702cfd8cc184543b",
+    "code_sha256": "90b8429a7f622b82b6e9c2ec38a48f9efe5eea3f0ea0eabc1fea93a91f4c628c",
+    "status": "completed",
+    "container": "sheetkeeper-81b4fde23eb44309b17d6bc2e07b787e",
+    "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+    "destroyed": true,
+    "timed_out": false,
+    "exit_code": 0,
+    "elapsed_ms": 590,
+    "limits": {
+      "memory_mib": 256,
+      "cpu": 1,
+      "pids": 64,
+      "network": "none"
+    },
+    "numeric_cross_check": "rows and sum of groups; semantic correctness still requires human review",
+    "provider": {
+      "provider": "vultr",
+      "requested_model": "qwen3.8-flash-next",
+      "returned_model": "qwen3.8-flash-next",
+      "usage": {
+        "prompt_tokens": 208,
+        "completion_tokens": 502,
+        "total_tokens": 710,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      }
+    }
+  },
+  "result": {
+    "rows": 6,
+    "groups": [
+      {
+        "label": "Indicacao",
+        "value": 2500
+      },
+      {
+        "label": "Busca",
+        "value": 2000
+      },
+      {
+        "label": "Social",
+        "value": 1500
+      }
+    ],
+    "total": 6000
+  },
+  "executed_code": "import csv\nimport json\nimport math\nfrom collections import defaultdict\n\ndef main():\n    input_path = \"/work/data.csv\"\n    output_path = \"/work/result.json\"\n    \n    try:\n        with open(input_path, mode='r', newline='', encoding='utf-8') as f:\n            reader = csv.DictReader(f)\n            if not reader.fieldnames:\n                raise ValueError(\"CSV file is empty or has no headers\")\n            \n            # Check required columns\n            if \"channel\" not in reader.fieldnames or \"revenue\" not in reader.fieldnames:\n                raise ValueError(\"Required columns 'channel' and 'revenue' not found\")\n            \n            channel_revenue = defaultdict(float)\n            row_count = 0\n            \n            for row in reader:\n                row_count += 1\n                channel = row[\"channel\"]\n                revenue_str = row[\"revenue\"]\n                \n                if channel is None or revenue_str is None:\n                    continue\n                \n                try:\n                    revenue = float(revenue_str)\n                    if not math.isfinite(revenue):\n                        continue\n                except ValueError:\n                    continue\n                \n                channel_revenue[channel] += revenue\n            \n            # Sort by revenue descending and take top 24\n            sorted_channels = sorted(channel_revenue.items(), key=lambda x: x[1], reverse=True)\n            top_channels = sorted_channels[:24]\n            \n            groups = []\n            total = 0.0\n            for label, value in top_channels:\n                groups.append({\"label\": label, \"value\": value})\n                total += value\n            \n            result = {\n                \"rows\": row_count,\n                \"groups\": groups,\n                \"total\": total\n            }\n            \n            with open(output_path, mode='w', encoding='utf-8') as f:\n                json.dump(result, f, indent=2)\n                \n    except Exception as e:\n        raise ValueError(f\"Error processing CSV: {e}\")\n\nif __name__ == \"__main__\":\n    main()",
+  "events": [
+    "Plano pronto para revisão. Nenhum código executado.",
+    "Executando em ambiente isolado.",
+    "Ambiente destruído."
+  ]
+}

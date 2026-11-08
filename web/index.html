@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SheetKeeper · FIGUEIRA AI</title><link rel="stylesheet" href="/style.css"><script src="/locale.js" defer></script><script src="/app.js" defer></script></head>
+<body>
+<header><a href="/" class="brand">SheetKeeper<span>FIGUEIRA AI</span></a><div class="header-tools"><span class="stage" data-i18n="stage">Preparação local</span><label class="language-control"><span data-i18n="languageLabel">Idioma</span><select id="language" aria-label="Idioma"><option value="auto" data-i18n="auto">Automático · navegador</option><option value="en">English</option><option value="pt">Português</option><option value="es">Español</option></select></label></div></header>
+<main>
+<div class="hero"><div><p class="eyebrow" data-i18n="eyebrow">DA PLANILHA À DECISÃO</p><h1 data-i18n="hero">Um resultado que<br>você pode conferir.</h1><p class="intro" data-i18n="intro">Revise o plano, execute a análise em um ambiente isolado e receba o gráfico junto das provas.</p></div><aside class="hero-note"><span class="small-label" data-i18n="important">O QUE IMPORTA</span><p data-i18n="proofs">Dados de entrada.<br>Código executado.<br>Resultado verificável.</p><span data-i18n="clearTrail">Uma trilha clara, do começo ao fim.</span></aside></div>
+<p id="notice" class="notice" role="status">Verificando a preparação…</p>
+<div class="layout">
+<section class="panel"><div class="section-head"><span class="step">01</span><h2 data-i18n="prepareAnalysis">Prepare a análise</h2></div>
+<label for="access"><span data-i18n="access">Código privado</span> <span data-i18n="accessHint">Se solicitado pelo servidor</span></label><input id="access" type="password" autocomplete="off" placeholder="Usado apenas nesta aba" data-i18n-placeholder="accessPlaceholder">
+<div class="toolbar"><button id="sample" class="secondary" data-i18n="sample">Usar exemplo sintético</button><label class="upload" for="file"><span data-i18n="chooseCsv">Escolher CSV</span><input id="file" type="file" accept=".csv,text/csv"></label></div>
+<label for="csv"><span data-i18n="spreadsheet">Planilha</span> <span data-i18n="limits">UTF-8 · até 200 KB · 2.000 linhas</span></label><textarea id="csv" rows="7" spellcheck="false" placeholder="Carregue uma planilha ou use o exemplo" data-i18n-placeholder="csvPlaceholder"></textarea>
+<label for="question" data-i18n="questionLabel">Qual análise você precisa?</label><textarea id="question" rows="3">Some a receita por canal e mostre um gráfico.</textarea>
+<label for="mode" data-i18n="mode">Modo de preparação</label><select id="mode"><option value="sample" data-i18n="localMode">Ensaio local — plano fixo, sem IA</option><option value="vultr" disabled>Vultr — aguardando configuração</option></select>
+<p class="privacy" data-i18n="privacy">Use dados sintéticos nesta etapa. No modo Vultr, a pergunta e os nomes das colunas serão enviados ao modelo; os valores da planilha ficam no servidor e no sandbox.</p>
+<button id="plan" class="primary" data-i18n="preparePlan">Preparar plano <span>→</span></button>
+</section>
+<section class="panel output"><div class="section-head"><span class="step">02</span><h2 data-i18n="review">Revise antes de executar</h2></div>
+<div id="empty" class="empty"><span>↗</span><h3 data-i18n="emptyTitle">A análise começa com um plano.</h3><p data-i18n="emptyText">Veja o que será feito e confira o código antes de liberar a execução.</p></div>
+<div id="review" hidden><p id="summary"></p><details><summary data-i18n="checkCode">Conferir código</summary><pre id="code"></pre></details><div class="actions"><button id="run" class="primary" disabled data-i18n="run">Executar análise</button><button id="contain" class="secondary" disabled data-i18n="contain">Testar contenção</button></div><p id="runhint" class="hint"></p></div>
+<div id="result" hidden><div class="section-head result-head"><span class="step">03</span><h2 data-i18n="resultTitle">Confira o resultado</h2></div><div class="metrics"><div><span data-i18n="rows">Linhas analisadas</span><strong id="rows"></strong></div><div><span data-i18n="groupTotal">Soma dos grupos</span><strong id="total"></strong></div></div><div id="chart" role="img" aria-label="Valores agregados por grupo"></div><p class="hint" data-i18n="validationHint">A soma e a quantidade de linhas foram verificadas. Revise se a análise responde à sua pergunta.</p></div>
+<ol id="events" class="events" aria-live="polite"></ol><button id="download" class="secondary" hidden data-i18n="download">Baixar provas da execução ↓</button>
+</section></div>
+<section class="principles"><div><b data-i18n="principle1">Você decide quando executar.</b><p data-i18n="principle1Text">O plano fica disponível para revisão.</p></div><div><b data-i18n="principle2">Cada tarefa tem seu próprio ambiente.</b><p data-i18n="principle2Text">Sem rede, sem chaves e com limites definidos.</p></div><div><b data-i18n="principle3">O resultado vem com provas.</b><p data-i18n="principle3Text">Código, resumo da execução e validações.</p></div></section>
+</main><footer><span data-i18n="footer">SheetKeeper · protótipo de preparação para Vultr AgentRush</span> <span data-i18n="footerPending">Execução na Vultr e demonstração de isolamento ainda pendentes.</span></footer>
+</body></html>

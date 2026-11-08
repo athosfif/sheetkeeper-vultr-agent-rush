@@ -1,0 +1,396 @@
+{
+  "started_at": "2026-11-08T17:53:26.710472+00:00",
+  "audit_mode": "fixed_synthetic_fixture_no_inference",
+  "code_origin": "Prepared 2026-10-01; cloud audit adaptation 2026-11-08",
+  "cloud_provider": "vultr",
+  "cloud_provider_source": "controller environment; independently verify console deployment receipt",
+  "environment": {
+    "os": "Linux",
+    "kernel": "6.8.0-147-generic",
+    "architecture": "x86_64",
+    "controller_uid": 1001
+  },
+  "provider_api_calls": 0,
+  "cloud_resources_activated_by_this_audit": false,
+  "checks": [
+    {
+      "case": "normal-real-analysis",
+      "output": {
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "",
+        "result": {
+          "rows": 6,
+          "groups": [
+            {
+              "label": "Busca",
+              "value": 2000.0
+            },
+            {
+              "label": "Indicacao",
+              "value": 2500.0
+            },
+            {
+              "label": "Social",
+              "value": 1500.0
+            }
+          ],
+          "total": 6000.0
+        },
+        "container": "sheetkeeper-9f450c198097416b83bac066ba3f3b78",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 518,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    },
+    {
+      "case": "infinite-loop-timeout",
+      "output": {
+        "exit_code": -9,
+        "timed_out": true,
+        "stdout": "",
+        "stderr": "",
+        "result": null,
+        "container": "sheetkeeper-3aca32875ff64134b00b53b7526a1350",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 3422,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    },
+    {
+      "case": "recovery-after-timeout",
+      "output": {
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "",
+        "result": {
+          "rows": 6,
+          "groups": [
+            {
+              "label": "Busca",
+              "value": 2000.0
+            },
+            {
+              "label": "Indicacao",
+              "value": 2500.0
+            },
+            {
+              "label": "Social",
+              "value": 1500.0
+            }
+          ],
+          "total": 6000.0
+        },
+        "container": "sheetkeeper-fe0b7c211194438f8b7dcef1287e7e25",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 581,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    },
+    {
+      "case": "network-host-secrets-readonly-user-cgroup-boundaries",
+      "output": {
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout": "{\"cgroup_readback\": {\"cpu.max\": \"100000 100000\", \"memory.max\": \"268435456\", \"pids.max\": \"64\"}, \"interfaces\": [\"lo\"], \"uid\": 10001, \"network_egress_attempted\": false}\n",
+        "stderr": "",
+        "result": {
+          "rows": 6,
+          "groups": [
+            {
+              "label": "Boundary checks passed",
+              "value": 1
+            }
+          ],
+          "total": 1
+        },
+        "container": "sheetkeeper-6dc14548f994456f8cbfd57b7515e271",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 630,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    },
+    {
+      "case": "memory-limit",
+      "output": {
+        "exit_code": -9,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "",
+        "result": null,
+        "container": "sheetkeeper-3544caca21cc4ea79e0e63ee932c6e6c",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 625,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    },
+    {
+      "case": "excess-output",
+      "output": {
+        "exit_code": 1,
+        "timed_out": false,
+        "stdout": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "stderr": "Traceback (most recent call last):\n  File \"/work/analysis.py\", line 1, in <module>\n    print(\"x\"*(2*1024*1024))\nOSError: [Errno 27] File too large\n",
+        "result": null,
+        "container": "sheetkeeper-315099169d2a4476a926c0e01bca734a",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 485,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    },
+    {
+      "case": "symlink-artifact-rejected",
+      "output": {
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout": "",
+        "stderr": "",
+        "result": null,
+        "container": "sheetkeeper-b80a9ad683c6498bb3976eab414b1529",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 508,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    },
+    {
+      "case": "process-limit",
+      "output": {
+        "exit_code": 0,
+        "timed_out": false,
+        "stdout": "process limit enforced\n",
+        "stderr": "",
+        "result": null,
+        "container": "sheetkeeper-cff20c6781834f95a72e61657d46bdc5",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "elapsed_ms": 614,
+        "destroyed": true,
+        "removal_independently_checked": true
+      }
+    }
+  ],
+  "application_lifecycle": [
+    {
+      "status": "completed",
+      "metadata": {
+        "headers": [
+          "channel",
+          "revenue"
+        ],
+        "rows": 6,
+        "bytes": 88
+      },
+      "events": [
+        "Plano pronto para revisão. Nenhum código executado.",
+        "Executando em ambiente isolado.",
+        "Ambiente destruído."
+      ],
+      "code": "import csv, json\nfrom collections import defaultdict\ntotals = defaultdict(float)\nrows = 0\nwith open('/work/data.csv', newline='', encoding='utf-8-sig') as stream:\n    for row in csv.DictReader(stream):\n        totals[row['channel']] += float(row['revenue'])\n        rows += 1\nresult = {'rows': rows, 'groups': [{'label': k, 'value': v} for k, v in sorted(totals.items())], 'total': sum(totals.values())}\nwith open('/work/result.json', 'w') as stream:\n    json.dump(result, stream, allow_nan=False)\n",
+      "provider": {
+        "provider": "deterministic_fixture",
+        "model_called": false
+      },
+      "result": {
+        "rows": 6,
+        "groups": [
+          {
+            "label": "Busca",
+            "value": 2000.0
+          },
+          {
+            "label": "Indicacao",
+            "value": 2500.0
+          },
+          {
+            "label": "Social",
+            "value": 1500.0
+          }
+        ],
+        "total": 6000.0
+      },
+      "receipt": {
+        "execution": "docker",
+        "provider": {
+          "provider": "deterministic_fixture",
+          "model_called": false
+        },
+        "containment_test": false,
+        "input_sha256": "63354525e6cab7f83cb14e59163ab87e07d65240cdb3b0af702cfd8cc184543b",
+        "code_sha256": "46a546f55675618a75e90615d074d47aff9289f920d6c290a12c36084d2600cd",
+        "status": "completed",
+        "container": "sheetkeeper-0a7bcb7b74e94d06a14c9a18b0b314f4",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "destroyed": true,
+        "timed_out": false,
+        "exit_code": 0,
+        "elapsed_ms": 540,
+        "limits": {
+          "memory_mib": 256,
+          "cpu": 1,
+          "pids": 64,
+          "network": "none"
+        },
+        "numeric_cross_check": "rows and sum of groups; semantic correctness still requires human review"
+      },
+      "summary": "Somar revenue por channel e validar a soma dos grupos.",
+      "executed_code": "import csv, json\nfrom collections import defaultdict\ntotals = defaultdict(float)\nrows = 0\nwith open('/work/data.csv', newline='', encoding='utf-8-sig') as stream:\n    for row in csv.DictReader(stream):\n        totals[row['channel']] += float(row['revenue'])\n        rows += 1\nresult = {'rows': rows, 'groups': [{'label': k, 'value': v} for k, v in sorted(totals.items())], 'total': sum(totals.values())}\nwith open('/work/result.json', 'w') as stream:\n    json.dump(result, stream, allow_nan=False)\n"
+    },
+    {
+      "status": "contained",
+      "metadata": {
+        "headers": [
+          "channel",
+          "revenue"
+        ],
+        "rows": 6,
+        "bytes": 88
+      },
+      "events": [
+        "Plano pronto para revisão. Nenhum código executado.",
+        "Teste de contenção: loop infinito dentro do sandbox.",
+        "Ambiente destruído."
+      ],
+      "code": "import csv, json\nfrom collections import defaultdict\ntotals = defaultdict(float)\nrows = 0\nwith open('/work/data.csv', newline='', encoding='utf-8-sig') as stream:\n    for row in csv.DictReader(stream):\n        totals[row['channel']] += float(row['revenue'])\n        rows += 1\nresult = {'rows': rows, 'groups': [{'label': k, 'value': v} for k, v in sorted(totals.items())], 'total': sum(totals.values())}\nwith open('/work/result.json', 'w') as stream:\n    json.dump(result, stream, allow_nan=False)\n",
+      "provider": {
+        "provider": "deterministic_fixture",
+        "model_called": false
+      },
+      "result": null,
+      "receipt": {
+        "execution": "docker",
+        "provider": {
+          "provider": "deterministic_fixture",
+          "model_called": false
+        },
+        "containment_test": true,
+        "input_sha256": "63354525e6cab7f83cb14e59163ab87e07d65240cdb3b0af702cfd8cc184543b",
+        "code_sha256": "d8b5c4b6751d495e5ffef53e4af21891adb500da0df28dc19727ca0cda213d8b",
+        "status": "contained",
+        "container": "sheetkeeper-9bc6b4fd29554e1ab37d29286438304a",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "destroyed": true,
+        "timed_out": true,
+        "exit_code": -9,
+        "elapsed_ms": 3438,
+        "limits": {
+          "memory_mib": 256,
+          "cpu": 1,
+          "pids": 64,
+          "network": "none"
+        },
+        "numeric_cross_check": "rows and sum of groups; semantic correctness still requires human review"
+      },
+      "summary": "Somar revenue por channel e validar a soma dos grupos.",
+      "executed_code": "while True:\n    pass\n"
+    },
+    {
+      "status": "completed",
+      "metadata": {
+        "headers": [
+          "channel",
+          "revenue"
+        ],
+        "rows": 6,
+        "bytes": 88
+      },
+      "events": [
+        "Plano pronto para revisão. Nenhum código executado.",
+        "Executando em ambiente isolado.",
+        "Ambiente destruído."
+      ],
+      "code": "import csv, json\nfrom collections import defaultdict\ntotals = defaultdict(float)\nrows = 0\nwith open('/work/data.csv', newline='', encoding='utf-8-sig') as stream:\n    for row in csv.DictReader(stream):\n        totals[row['channel']] += float(row['revenue'])\n        rows += 1\nresult = {'rows': rows, 'groups': [{'label': k, 'value': v} for k, v in sorted(totals.items())], 'total': sum(totals.values())}\nwith open('/work/result.json', 'w') as stream:\n    json.dump(result, stream, allow_nan=False)\n",
+      "provider": {
+        "provider": "deterministic_fixture",
+        "model_called": false
+      },
+      "result": {
+        "rows": 6,
+        "groups": [
+          {
+            "label": "Busca",
+            "value": 2000.0
+          },
+          {
+            "label": "Indicacao",
+            "value": 2500.0
+          },
+          {
+            "label": "Social",
+            "value": 1500.0
+          }
+        ],
+        "total": 6000.0
+      },
+      "receipt": {
+        "execution": "docker",
+        "provider": {
+          "provider": "deterministic_fixture",
+          "model_called": false
+        },
+        "containment_test": false,
+        "input_sha256": "63354525e6cab7f83cb14e59163ab87e07d65240cdb3b0af702cfd8cc184543b",
+        "code_sha256": "46a546f55675618a75e90615d074d47aff9289f920d6c290a12c36084d2600cd",
+        "status": "completed",
+        "container": "sheetkeeper-57e0c23502394365a1a03f50ce7b0dc7",
+        "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+        "destroyed": true,
+        "timed_out": false,
+        "exit_code": 0,
+        "elapsed_ms": 509,
+        "limits": {
+          "memory_mib": 256,
+          "cpu": 1,
+          "pids": 64,
+          "network": "none"
+        },
+        "numeric_cross_check": "rows and sum of groups; semantic correctness still requires human review"
+      },
+      "summary": "Somar revenue por channel e validar a soma dos grupos.",
+      "executed_code": "import csv, json\nfrom collections import defaultdict\ntotals = defaultdict(float)\nrows = 0\nwith open('/work/data.csv', newline='', encoding='utf-8-sig') as stream:\n    for row in csv.DictReader(stream):\n        totals[row['channel']] += float(row['revenue'])\n        rows += 1\nresult = {'rows': rows, 'groups': [{'label': k, 'value': v} for k, v in sorted(totals.items())], 'total': sum(totals.values())}\nwith open('/work/result.json', 'w') as stream:\n    json.dump(result, stream, allow_nan=False)\n"
+    }
+  ],
+  "complete": true,
+  "preflight": {
+    "ready": true,
+    "reason": "Sandbox disponível.",
+    "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+    "memory_mib": 256,
+    "cpu": 1,
+    "pids": 64,
+    "network": "none"
+  },
+  "docker": {
+    "ServerVersion": "29.9.3",
+    "OSType": "linux",
+    "CgroupDriver": "systemd",
+    "CgroupVersion": "2",
+    "SecurityOptions": [
+      "name=seccomp,profile=builtin",
+      "name=rootless",
+      "name=cgroupns"
+    ],
+    "Warnings": null
+  },
+  "kernel_limits_inside_container": {
+    "cgroup_readback": {
+      "cpu.max": "100000 100000",
+      "memory.max": "268435456",
+      "pids.max": "64"
+    },
+    "interfaces": [
+      "lo"
+    ],
+    "uid": 10001,
+    "network_egress_attempted": false
+  },
+  "orphan_containers": 0,
+  "completed_at": "2026-11-08T17:53:39.622297+00:00"
+}

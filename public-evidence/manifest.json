@@ -1,0 +1,43 @@
+{
+  "recorded_on": "2026-11-08",
+  "dataset": "fixtures/sales.csv; six synthetic sales rows",
+  "purpose": "Sanitized records of real application executions on the dedicated Vultr VM",
+  "sanitization": "Allowlisted runtime, model, token, hash, result, executed-code and event fields. No account, billing, support, credential or access-code data. Private call-budget counters omitted.",
+  "integrity_note": "Hashes identify files and inputs; these application receipts are not signed provider attestations. Provider model identifiers are reported values, not independent verification of model weights or hardware.",
+  "records": [
+    {
+      "file": "analysis-evidence.json",
+      "sha256": "656360e913c4040ff9c5314560d39280e99af6e97e3e6d7f59efd9e7b3190f6a",
+      "status": "completed",
+      "elapsed_ms": 655,
+      "destroyed": true,
+      "provider_tokens": 730
+    },
+    {
+      "file": "containment-evidence.json",
+      "sha256": "afa0c5be8912abeabc033f8c77d5d751a988ff5197f58eee788cae48e00bb0d6",
+      "status": "contained",
+      "elapsed_ms": 3433,
+      "destroyed": true,
+      "provider_tokens": 824
+    },
+    {
+      "file": "recovery-evidence.json",
+      "sha256": "16c58357ec8719a8045a8af5beea9951c443c78c7ea634a3823bc61d4d12ba46",
+      "status": "completed",
+      "elapsed_ms": 590,
+      "destroyed": true,
+      "provider_tokens": 710
+    }
+  ],
+  "boundary_audit": {
+    "file": "cloud-boundaries.json",
+    "sha256": "3cb9862259865b217eb53ccfa2488729b6e9bf4f743bf70a5d787bb4e460e5ea",
+    "mode": "fixed_synthetic_fixture_no_inference",
+    "cases": 8,
+    "application_lifecycles": 3,
+    "provider_api_calls": 0,
+    "orphan_containers": 0,
+    "sanitization": "Ephemeral job capability IDs removed; account, credential and administrative details absent."
+  }
+}

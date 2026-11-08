@@ -1,0 +1,45 @@
+{
+  "receipt": {
+    "execution": "docker",
+    "containment_test": true,
+    "input_sha256": "63354525e6cab7f83cb14e59163ab87e07d65240cdb3b0af702cfd8cc184543b",
+    "code_sha256": "d8b5c4b6751d495e5ffef53e4af21891adb500da0df28dc19727ca0cda213d8b",
+    "status": "contained",
+    "container": "sheetkeeper-2ce21d57e7c14fe49b2564ff2ef81a1b",
+    "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+    "destroyed": true,
+    "timed_out": true,
+    "exit_code": -9,
+    "elapsed_ms": 3433,
+    "limits": {
+      "memory_mib": 256,
+      "cpu": 1,
+      "pids": 64,
+      "network": "none"
+    },
+    "numeric_cross_check": "rows and sum of groups; semantic correctness still requires human review",
+    "provider": {
+      "provider": "vultr",
+      "requested_model": "qwen3.8-flash-next",
+      "returned_model": "qwen3.8-flash-next",
+      "usage": {
+        "prompt_tokens": 208,
+        "completion_tokens": 616,
+        "total_tokens": 824,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      }
+    }
+  },
+  "result": null,
+  "executed_code": "while True:\n    pass\n",
+  "events": [
+    "Plano pronto para revisão. Nenhum código executado.",
+    "Teste de contenção: loop infinito dentro do sandbox.",
+    "Ambiente destruído."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "receipt": {
+    "execution": "docker",
+    "containment_test": false,
+    "input_sha256": "63354525e6cab7f83cb14e59163ab87e07d65240cdb3b0af702cfd8cc184543b",
+    "code_sha256": "71b57786106812b6010079f7895e7c5a7a27eaaff0e7ebb67fe57b686dbd1f24",
+    "status": "completed",
+    "container": "sheetkeeper-cec1e43cc4da4fe5bf2020ae1c4c453d",
+    "image_id": "sha256:1f5c466dfb5c30748dcb474f0b5338586dd20b8c6081bcc4c1bf75cc3cad29a5",
+    "destroyed": true,
+    "timed_out": false,
+    "exit_code": 0,
+    "elapsed_ms": 655,
+    "limits": {
+      "memory_mib": 256,
+      "cpu": 1,
+      "pids": 64,
+      "network": "none"
+    },
+    "numeric_cross_check": "rows and sum of groups; semantic correctness still requires human review",
+    "provider": {
+      "provider": "vultr",
+      "requested_model": "qwen3.8-flash-next",
+      "returned_model": "qwen3.8-flash-next",
+      "usage": {
+        "prompt_tokens": 208,
+        "completion_tokens": 522,
+        "total_tokens": 730,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        }
+      }
+    }
+  },
+  "result": {
+    "rows": 6,
+    "groups": [
+      {
+        "label": "Indicacao",
+        "value": 2500
+      },
+      {
+        "label": "Busca",
+        "value": 2000
+      },
+      {
+        "label": "Social",
+        "value": 1500
+      }
+    ],
+    "total": 6000
+  },
+  "executed_code": "import csv\nimport json\nimport os\n\ndef main():\n    input_path = '/work/data.csv'\n    output_path = '/work/result.json'\n    \n    if not os.path.exists(input_path):\n        raise ValueError(f\"Input file {input_path} not found\")\n\n    groups = {}\n    row_count = 0\n    \n    with open(input_path, 'r', newline='', encoding='utf-8') as f:\n        reader = csv.DictReader(f)\n        for row in reader:\n            row_count += 1\n            channel = row.get('channel')\n            revenue_str = row.get('revenue')\n            \n            if channel is None or revenue_str is None:\n                continue\n                \n            try:\n                revenue = float(revenue_str)\n            except ValueError:\n                continue\n                \n            if channel not in groups:\n                groups[channel] = 0.0\n            groups[channel] += revenue\n\n    # Prepare list of groups, limiting to 24\n    group_list = []\n    for label, value in groups.items():\n        group_list.append({\n            \"label\": str(label),\n            \"value\": float(value)\n        })\n        \n    # Sort by value descending for better presentation, though not strictly required\n    group_list.sort(key=lambda x: x['value'], reverse=True)\n    \n    # Limit to 24 groups\n    group_list = group_list[:24]\n    \n    total = sum(g['value'] for g in group_list)\n    \n    result = {\n        \"rows\": row_count,\n        \"groups\": group_list,\n        \"total\": total\n    }\n    \n    with open(output_path, 'w', encoding='utf-8') as f:\n        json.dump(result, f, indent=2)\n\nif __name__ == '__main__':\n    main()\n",
+  "events": [
+    "Plano pronto para revisão. Nenhum código executado.",
+    "Executando em ambiente isolado.",
+    "Ambiente destruído."
+  ]
+}

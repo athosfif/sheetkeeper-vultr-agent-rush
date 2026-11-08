@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+var/
+*.log
+
+# Private operations and original media are never source-release inputs.
+/evidence/
+/presentation/
+._*
+.DS_Store
+*.env
+.env.*
+!.env.example
