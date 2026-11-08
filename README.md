@@ -5,9 +5,14 @@
 SheetKeeper turns a spreadsheet question into a reviewable plan, runs the approved Python code in a disposable sandbox, and returns a chart with an execution receipt. It is designed for a small team that needs to explain where a number came from, rather than copy an unverified answer out of a chat.
 
 **Demo:** https://sheetkeeper.64-177-50-57.sslip.io/  
-**Repository:** https://github.com/athosfif/sheetkeeper-vultr-agent-rush
+**Repository:** https://github.com/athosfif/sheetkeeper-vultr-agent-rush  
+**Submitted entry:** https://lablab.build/ai-hackathons/vultr-hackathon/figueira-ai/sheetkeeper-csv-analysis-with-receipts
 
-The HTTPS application is deployed on a dedicated Vultr VM. The LabLab application link provides scoped evaluation access through a demo-code fragment; the page removes that fragment before making API requests. The standalone URL also supports manual code entry. This demonstration code grants no SSH or provider-account access and is intentionally absent from this repository. Source publication, evaluator access and final LabLab submission are separate steps. This README documents the actual cloud run and remaining delivery gates, not submission acceptance or eligibility approval.
+The HTTPS application is deployed on a dedicated Vultr VM. The LabLab application link provides scoped evaluation access through a demo-code fragment; the page removes that fragment before making API requests. The standalone URL also supports manual code entry. This demonstration code grants no SSH or provider-account access and is intentionally absent from this repository. ## Delivery status — submitted and publicly verified
+
+The official LabLab entry was submitted on **8 November 2026**. The completion screen and the public submission page were checked, and public downloads of the final video and PDF matched the uploaded files. Source publication and evaluator access were verified separately. The submission ID is `pthf1sepp7qfkabv3ydadk6q`.
+
+This confirms delivery and public readback. It does **not** establish organizer approval of pre-event reuse, judging eligibility or an award. The cloud results, origin disclosure and operating limits below remain applicable.
 
 ## Try the workflow
 
