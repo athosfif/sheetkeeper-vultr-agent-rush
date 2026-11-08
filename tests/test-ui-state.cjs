@@ -20,6 +20,7 @@ const pending = {};
 const deploymentNodes=['stage','footer','footerPending'].map(key=>Object.assign(element(key),{dataset:{i18n:key}}));
 let serverStatus={sandbox: {ready: false}, inference_enabled: false};
 let fetchCount=0;
+let lastPlanRequest=null;
 const response = data => ({ok: true, json: async () => data});
 const fixtureJob = {id: 'synthetic', status: 'ready', provider: {provider: 'deterministic_fixture'}, code: 'pass', events: [], result: null};
 (async () => {
@@ -28,11 +29,11 @@ const fixtureJob = {id: 'synthetic', status: 'ready', provider: {provider: 'dete
     navigator: {languages: ['en'], language: 'en'},
     chooseLocale: (_languages,override) => override==='auto'?'en':override, localStorage: {getItem() {return null;}, setItem() {}},
     window: {addEventListener() {}}, Intl, setTimeout,
-    fetch: async url => {
+    fetch: async (url,options) => {
       fetchCount++;
       if (url === '/i18n.json') return response(catalog);
       if (url === '/api/status') return response(serverStatus);
-      if (url === '/api/plan') return response(fixtureJob);
+      if (url === '/api/plan') {lastPlanRequest=JSON.parse(options.body);return response(fixtureJob);}
       if (url === '/api/sample') return new Promise(resolve => {pending.sample = () => resolve(response({csv: 'channel,revenue\nSynthetic,1'}));});
       throw new Error('Unexpected route');
     },
@@ -55,6 +56,17 @@ const fixtureJob = {id: 'synthetic', status: 'ready', provider: {provider: 'dete
     assert.equal(element('footerPending').textContent,catalog[lang].footerCloudHint);
   }
   assert.equal(fetchCount,beforeLanguageChange,'Changing the label language makes no provider or status request');
+  await element('plan').listeners.click();
+  const cloudLoading=element('sample').listeners.click();
+  assert.equal(element('plan').disabled,true,'Cloud sample also blocks planning while loading');
+  pending.sample();await cloudLoading;
+  assert.equal(element('mode').value,'vultr','Synthetic data uses live Vultr planning when enabled');
+  assert.equal(element('review').hidden,true,'Loading cloud example invalidates the previous plan');
+  await element('plan').listeners.click();
+  assert.equal(lastPlanRequest.mode,'vultr','Prepare after cloud sample sends the selected live provider mode');
+  element('mode').value='sample';element('mode').listeners.change();
+  await element('access').listeners.change();
+  assert.equal(element('mode').value,'sample','A later status refresh preserves the user-selected mode');
   serverStatus={...serverStatus,sandbox:{ready:false}};
   await element('access').listeners.change();
   assert.equal(element('notice').textContent,catalog.en.cloudAwaitSandbox,'Cloud deployment and sandbox readiness stay distinct');
@@ -68,7 +80,9 @@ const fixtureJob = {id: 'synthetic', status: 'ready', provider: {provider: 'dete
   pending.sample(); await loading;
   assert.equal(element('plan').disabled, false);
   assert.equal(element('csv').value, 'channel,revenue\nSynthetic,1');
+  assert.equal(element('mode').value,'sample','Without inference the sample keeps the fixed no-AI mode');
   await element('plan').listeners.click();
+  assert.equal(lastPlanRequest.mode,'sample','Local sample never requests the provider');
   assert.equal(element('review').hidden, false);
   element('question').listeners.input();
   assert.equal(element('review').hidden, true, 'Editing the question hides the stale plan');

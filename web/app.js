@@ -92,7 +92,7 @@ $('sample').addEventListener('click',async()=>{
   busy=true;update();
   try{
     const sample=await api('/api/sample');
-    $('csv').value=sample.csv;$('mode').value='sample';$('question').value=t('sampleQuestion');
+    $('csv').value=sample.csv;$('mode').value=inferenceEnabled?'vultr':'sample';$('question').value=t('sampleQuestion');
     invalidatePlan();notice('sampleLoaded');
   }catch(e){errorNotice(e);}finally{busy=false;update();}
 });
